@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+int main()
+{
+int x,y,z
+float v,m,F,G,H;
+system("clear");
+printf("x=");scanf("%d",&x);
+printf("y=");scanf("%d",&y);
+printf("z=");scanf("%d",&z);
+printf("v=");scanf("%f",&v);
+printf("m=");scanf("%f",&m);
+if (3*y !=0 || y !=0
+F=(5,0*x/3,0*y)+(2,0*y/3,0*z)+(4,0*v/3,0*w)+(1,0/2,0
+)*x*y*z;
+printf("F=%f\n",F);
+if (z !=0 ||x*y !=0 || 3+w/v !=0)
+G=(x*y/z+y/x*z+(2+y/z)/(3+w/n);
+printf(G=%f\n",G);
+H=(10e5*x*y*z+10e-3*v*w);
+printf("H%=f\n",H);
+ return 0;
+}
+
