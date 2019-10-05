@@ -19,7 +19,7 @@ printf("W=%f\n",W);
 else printf("W=Не имеет смысла\n");           
 if (n+k3/k1 != 0 &&  k1 != 0)
 {
-U=(float)(10e2 + 1.0/k1)/10e2 +(float)(m+k2/k1)/(n+k3/k1);
+U=(float)(10e2 + 1.0/k1)/10e2 +(float)(m+k2/k1)/(n+k3/k1); /*Не совсем, в k2/k1, k3/k1 приведение типов тоже нужно.*/
 printf("U=%f\n",U);
 }
 else printf("U=Не имеет смысла\n");
@@ -31,3 +31,5 @@ printf("V=%f\n",V);
 else printf("V=Не имеет смысла\n");
  return 0;
 }
+
+/*Итоговая оценка 4.8*/

@@ -4,7 +4,7 @@
 
 int main()
 {
-	system("clear");
+	system("clear"); /*Очистка экрана должна быть при выводе*/
 	int p,r,q,L;
 	float a,M,N;
 	printf("Ввести с клавиатуры целые числа \n");
@@ -28,3 +28,5 @@ int main()
 	printf("L = %d\n", p*r + r*q + q*p);
 	return 0;
 }
+
+/*Итоговая оценка 4.8*/

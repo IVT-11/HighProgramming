@@ -3,7 +3,7 @@
 int main()
 {
 int a,b,c;
-float  d,e,f,w1,w2,w3;system("clear");
+float  d,e,f,w1,w2,w3;system("clear"); /*Не здесь очистка*/
 printf("Введите число a=");
 scanf("%d",&a);
 printf("Введите число b=");
@@ -20,7 +20,7 @@ if (c==0||b==0||e==0||f==0||d==0)
 printf("Выражение w1 не имеет смысла\n");
 else
 {
-w1=3+a/(b*c)+(a*b)/c+d/(e*f)+f/(d*e);
+w1=3+a/(b*c)+(a*b)/c+d/(e*f)+f/(d*e); /*Нет приведения типов*/
 
 printf("w1=%f\n",w1);
 }
@@ -30,9 +30,11 @@ printf("w2=%f\n",w2);
 if (b==0)
 printf("Выражение w3 не имеет смысла\n");
 else {
-w3=d*(a/b)-(c/b)*e+2.5;
+w3=d*(a/b)-(c/b)*e+2.5; /*Нет приведения типов*/
 printf("w3=%f\n",w3);}
 
 return 0;
 }
+
+/*Итоговая оценка 4*/
 
