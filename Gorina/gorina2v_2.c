@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <math.h>
 int main()
 {
 	double x,a,b,fx;
@@ -7,20 +7,10 @@ int main()
 	scanf("%lf", &a);
 	printf("b = ");
 	scanf("%lf", &b);
-	if(abs(a-abs(b-x))==0)
+	if(fabs(a-fabs(b-x))==0)
 	fx=1;
 	else
-	{
-		{
-			if(abs(b-x)<0)
-			x=-x;
-			{
-				if(abs(a-abs(b-x))<0)
-				x=-x;
-			}
-		}
-	fx=(a*1.0)/(abs(a-abs(b-x)));
-        }
-	printf("Функция f(x) = %.2lf\n", fx);
+	fx=(a*1.0)/fabs(a-fabs(b-x));
+        printf("Функция f(x) = %.2lf\n", fx);
 	return 0;
 }
