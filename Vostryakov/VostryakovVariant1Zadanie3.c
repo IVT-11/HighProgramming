@@ -30,3 +30,4 @@ S+=c;
 printf("%f\n",S);
 return 0;
 }
+
