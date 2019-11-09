@@ -1,0 +1,72 @@
+/* вариант № 3*/
+/*Задание №1
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+int main()
+{
+setlocale(LC_ALL, "");
+int a, b, c, P;
+float S, Ha, p;
+printf("Введите сторону А: ");
+scanf("%d", &a);
+printf("Введите сторону B: ");
+scanf("%d", &b);
+printf("Введите сторону C: ");
+scanf("%d", &c);
+P = a + b + c;
+p = 0.5 * P;
+S = sqrt(p * (p - a) * (p - b) * (p - c));
+Ha = 2 * S / a;
+printf("P: %d\n", P);
+printf("S: %f\n", S);
+printf("H: %f\n", Ha);
+return 0;
+}
+*/
+/* Задание №2
+#include <stdio.h>
+
+int main()
+{
+int x, t, y;
+
+printf("Enter x: "); scanf("%d", &x);
+
+if (x >= 1)
+{
+t = x * x + x;
+}
+else
+{
+t = -5 * x + 3;
+}
+
+y = t * t - t - 1;
+printf("Solution: %d\n", y);
+
+return 0;
+}
+
+*/
+
+/* Задание № 3
+    #include <stdio.h>
+
+    int main()
+    {
+    int k, n, factorial = 1;
+    float p = 1;
+
+    printf("Enter n: "); scanf("%d", &n);
+
+    for (k = 1;k <= n;k++)
+    {
+    factorial *= k;
+    p *= ((-1.0) * (k * k + k + 1)) / factorial;
+    }
+    printf("Solution: %f\n", p);
+
+    return 0;
+    }
+*/
