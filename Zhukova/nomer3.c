@@ -29,5 +29,5 @@ printf("N=%d\n",k-1);
 else
 printf("Решений нет\n");
 
- return 0;
+return 0;
 }
