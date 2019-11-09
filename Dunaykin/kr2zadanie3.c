@@ -5,7 +5,7 @@ int main()
 float k=0.0,x,N,S=0.0,a=0.0;
 printf("x=");
 scanf("%f",&x);
-for(k=0;abs(x)<1,abs(a)<=0.001;k++)
+for(k=0.0;abs(x)<1,abs(a)<=0.001;k++)
 {
 a=pow(-x,k)/(k*k+2);
 N=a;
