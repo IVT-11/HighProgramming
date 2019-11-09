@@ -2,7 +2,7 @@
 #include<math.h>
 int main()
 {
-float a,b,c,alfa,beta,gama,e;
+float a,b,c,alfa,beta,gama,e,p,s;
 printf("Введите а= ");
 scanf("%f",&a);
 printf("\nВведите b= ");
@@ -30,6 +30,8 @@ beta=asin(e)/M_PI*180;
 if (beta<0)
 beta=beta*(-1);
 gama=180-alfa-beta;
-printf("beta=%f gama=%f c=%f\n",beta,gama,c);
+p=(a+b+c)/2.0;
+s=sqrt(p*(p-a)*(p-b)*(p-c));
+printf("beta=%f gama=%f c=%f\n периметр=%f площадь=%f",beta,gama,c,p,s);
 return 0;
 }
