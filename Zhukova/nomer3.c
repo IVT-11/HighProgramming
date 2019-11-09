@@ -1,3 +1,7 @@
+#include <stdio.h>	
+#include <math.h>	
+#include <stdlib.h>
+
 int main()
 {
 float P=1.0,a=0.0;
