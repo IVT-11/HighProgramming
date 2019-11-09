@@ -5,7 +5,7 @@ int main()
 {
 float P=1.0,a=0.0;
 double x;
-int k=1, z=1, n;
+int k=1, z=1;
 
 printf("Введите значение х=\n");scanf("%lf",&x);
 while(fabs(a)<=0.01)
@@ -15,7 +15,6 @@ while(fabs(a)<=0.01)
   P*=a;
   k++;
  }
-n=k-1;
 if(k>=1)
 {
 printf("Геометрическая последовательность равна %f\n",P);
