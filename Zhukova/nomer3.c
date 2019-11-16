@@ -22,12 +22,12 @@ while(fabs(a)<=0.01)
 }
 else printf("Введено неверное значение х\n");
  
-if(k>=1)
+if(a>=0.01)
 {
 printf("N=%d\n",k-1);
  }
 else
-printf("Решений нет\n");
+printf("N%d\n",k);
 
 return 0;
 }
