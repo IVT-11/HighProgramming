@@ -27,7 +27,7 @@ if(a>=0.01)
 printf("N=%d\n",k-1);
  }
 else
-printf("N%d\n",k);
+printf("N=%d\n",k);
 
 return 0;
 }
