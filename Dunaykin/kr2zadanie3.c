@@ -1,17 +1,37 @@
 #include<stdio.h>
+
 #include<math.h>
+
 int main()
+
 {
-float k=0.0,x,N,S=0.0,a=0.0;
+    int k,n;
+
+float x,s=0,ak,ak1=1;
+
 printf("x=");
+
 scanf("%f",&x);
-for(k=0.0;abs(x)<1,abs(a)<=0.001;k++)
+while(fabs(x)>=1)
 {
-a=pow(-x,k)/(k*k+2);
-N=a;
-S+=pow(-x,k)/(k*k+2);
-}
-printf("%f",S);
-return 0;
+    printf("x по модулю должен быть <=1\n");
+    printf("x=");
+    scanf("%f",&x);
 }
 
+    for(k=0;;k++)
+
+{
+    if(fabs(ak1)>=0.001) ak1=pow(-x,k)/(k*k+2);
+    else
+    {n=k;
+    break;}
+}
+    k=0;
+    for(k;k<=n;k++)
+    {
+        s+=pow(-x,k)/(float)(k*k+2);
+    }
+    printf("%f\n",s);
+    return 0;
+}
