@@ -35,3 +35,7 @@ s=sqrt(p*(p-a)*(p-b)*(p-c));
 printf("beta=%f gama=%f c=%f\n периметр=%f площадь=%f",beta,gama,c,p,s);
 return 0;
 }
+
+//1.66
+
+//Итого: 1.66+1.66+1.5=4.82

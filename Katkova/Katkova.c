@@ -1,5 +1,5 @@
 #
-include <stdio.h>
+include <stdio.h> //Это как?
 #include <math.h>
 
 int main()
@@ -31,4 +31,7 @@ printf("Нет решений");
 return 0;
 }
 
+//Какую задачу Вы решали?
+
+//0.5 за участие.
 

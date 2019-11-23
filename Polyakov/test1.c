@@ -21,7 +21,9 @@ printf("Периметр ромба=%f\n",P);
 b=sqrt(pow((x3-x1),2)+pow((y3-y1),2));
 c=sqrt(pow((x3-x2),2)+pow((y3-y2),2));
 p=(a+b+c)/2;
-s=2*sqrt(p*(p-a)*(p-b)*(p-c)/6/2);
+s=2*sqrt(p*(p-a)*(p-b)*(p-c)/6/2); //https://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%BC%D0%B1
 printf("Площадь ромба=%f\n",s);
 return 0;
 }
+
+//1 балл

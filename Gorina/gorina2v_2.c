@@ -14,3 +14,4 @@ int main()
         printf("Функция f(x) = %.2lf\n", fx);
 	return 0;
 }
+//1.66

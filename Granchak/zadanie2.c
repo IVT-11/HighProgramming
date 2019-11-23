@@ -20,3 +20,5 @@ printf("Solution: %d\n", y);
 
 return 0;
 }
+
+//1.66

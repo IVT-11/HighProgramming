@@ -12,3 +12,5 @@ else
  printf("%f\n",sqrt(4*x-6));
 return 0;
 }
+
+//1.66

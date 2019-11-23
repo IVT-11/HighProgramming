@@ -21,3 +21,5 @@ printf("S: %f\n", S);
 printf("H: %f\n", Ha);
 return 0;
 }
+
+//Углы? 1.2

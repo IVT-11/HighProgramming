@@ -12,7 +12,7 @@ int main()
     printf("Введите сторону d: "); scanf("%d", &d); // Правая сторона
 
     mn = (a + b) / 2.0; 
-    h = sqrt(pow (c, 2) - pow (((pow((a - b), 2) + pow(c, 2) - pow(d, 2))) / ( 2 * (a - b)), 2));
+    h = sqrt(pow (c, 2) - pow(((pow((a - b), 2) + pow(c, 2) - pow(d, 2))) / ( 2 * (a - b)), 2)); //откуда?
     p = a + b + c + d;
     s = mn * h;
     
@@ -23,3 +23,5 @@ int main()
     
     return 0;
 }
+
+//1.5

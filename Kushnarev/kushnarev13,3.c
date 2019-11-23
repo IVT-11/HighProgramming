@@ -10,3 +10,5 @@ p*=(pow(x,k)*log10(k*x))/(float)(k*k+k+1.0);
 printf("результат равен= %f\n",p);
 return 0;
 }
+
+//1.66
