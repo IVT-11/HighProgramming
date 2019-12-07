@@ -1,23 +1,31 @@
 #include <stdio.h>
 #include <math.h>
-
-int main()
-
+int inverse(int);
+int inverse(int a)
+{   
+    int c=0, b=a;
+    while(a>0)
+    {
+      c=c*10+a%10;
+      a/=10;
+    }
+    
+    return c;
+}
+int sub(int);
+int sub(int o)
 {
-int a, b, c, d, f;
-printf("введите а\n"); scanf("%d",&a); 
-b=a%10;
-a=a/10;
-
-c=a%10;
-a=a/10;
-
-d=a%10;
-a=a/10;
-
-f=a%10;
-a=a/10;
-
-printf("%d %d %d %d %d", a,f,d,c,b);
-return 0;
-} 
+   if(o==0)
+   return 0;
+   else 
+   return o-inverse(o);
+  
+}
+int main()
+{
+    int l, r;
+    printf("Введите число\n"); scanf("%d",l);
+    printf("%d\n", sub(l));
+    return 0;
+}
+hb
