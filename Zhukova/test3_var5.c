@@ -14,7 +14,7 @@ while(x<=2)
 {
 while(y<=2)
 {
- printf("%f\t",func(x,y));
+ printf("%.3f\t",func(x,y));
  y+=0.1;
 }
 printf("\n");
