@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+double result;
+double pi=3.142;
+printf("x\ty\tf(x,y)\n");
+for(double x=0; x <=pi;x+=(pi/8))
+{
+for(double y=0; y <=pi;y+=(pi/12))
+{
+result=(x*cos(x)+y*cos(y))/(x-y);
+printf("%.2f\t%.1f\t%.3f\n",x,y,result);
+}
+}
+}
+
