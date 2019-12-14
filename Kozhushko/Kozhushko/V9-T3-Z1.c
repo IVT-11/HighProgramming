@@ -1,15 +1,22 @@
 #include <stdio.h>
+float f(float x, int y, float z);
 int main()
 {
-int y=0; float x=-1,f;
+int b=0; float a=-1,c=0;
 printf("Таблица значений функции:\n");
-while (y<=10) //Я заранее убедился в том, что х и у будут участвовать в цикле одно и то же кол-во раз
- {
- f=(x*x+y*y+2)/(x*x-y*y);
- printf("%.3f\n",f);
- x+=0.2;
- y++;
+while (a<1.1) //1.1 специально, чтобы 1 входила в промежу$
+ { while (b<=10)
+  {
+  f(a,b,c);
+  printf("%.3f\n",c);
+  b++;
+  }
+ a+=0.2;
  }
 return 0;
 }
-
+float f(float x, int y, float z)
+{
+z=(x*x+y*y+2)/(x*x-y*y);
+return z;
+}
