@@ -13,7 +13,7 @@ float x=0,y=-0.5, c;
 printf("x\t y\t f(x,y)\n\n");
 while(x<=2)
 {
-while(y<=2)
+while(y<=0.5)
 {
  if((expf(x)+expf(-x))!=0&&(expf(y)-expf(-y))!=0&&(x+y)/2<=1&&(x+y)/2>=-1)
  printf("%.3f, %.3f, %.3f\n",x, y, func(x,y));
