@@ -1,25 +1,31 @@
 #include <stdio.h>
+
 #include <math.h>
+
 float function(float,float);
+
 float function(float a, float b)
+
 {
+
  float f;
+
  f=(sin(2*a)+cos(2*a)/sin(a))*(a*a+b*b);
+
  return f;
+
 }
+
 int main()
+
 {
-float x=-1,y=0, f;
-while(x<=1)
+
+double x,y;
+printf("x\t     y\t     f(x,y)\t\n\n",x,y,function(x,y));
+for(x=-1.0;x<=1.0;x+=0.25)
 {
-while(y<=2)
-{
- printf("%.3f\t",function(x,y));
- y+=0.1;
+    for(y=0.0;y<=2.0;y+=0.1)
+printf("%.3lf     %.3lf     %.3lf\n",x,y,function(x,y));
 }
-printf("\n");
-y=0;
-x+=0.25;
-} 
 return 0;
 }
