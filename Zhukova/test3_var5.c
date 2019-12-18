@@ -15,9 +15,9 @@ while(x<=2)
 {
 while(y<=0.5)
 {
- if((expf(x)+expf(-x))!=0&&(expf(y)-expf(-y))!=0&&(x+y)/2<=1&&(x+y)/2>=-1)
+ if((expf(x)+expf(-x))!=0&&(expf(y)-expf(-y))!=0&&(x+y)/2<=1)
  printf("%.3f, %.3f, %.3f\n",x, y, func(x,y));
- else if((expf(x)+expf(-x))==0||(expf(y)-expf(-y))==0||(x+y)/2>1&&(x+y)/2<-1)
+ else if((expf(x)+expf(-x))==0||(expf(y)-expf(-y))==0||(x+y)/2>1)
  printf("%.3f, %.3f, происходит деление или умножение на 0\n", x, y);
  y+=0.1;
 }
