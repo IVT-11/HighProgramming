@@ -8,7 +8,7 @@ return (a*sin(b)+b*cos(a))/(pow(a,3)-pow(b,3));
 int main()
 {
 double pi=3.14159265;
-float x=-pi,y=-2*pi, c;
+float x=-pi,y=-2*pi;
 
 printf("x\t y\t f(x,y)\n\n");
 while(x<=pi)
