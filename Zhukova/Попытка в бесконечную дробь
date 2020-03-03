@@ -1,5 +1,3 @@
-[Пересланное сообщение]
-  Роман Климантов, сегодня в 1:30
   #include <stdio.h> 
   void ZAP_MAS(int MAS[], int n) 
   { 
