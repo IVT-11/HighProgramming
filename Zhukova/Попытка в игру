@@ -1,0 +1,89 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h> 
+#include <math.h> 
+void ZAP_MAS(float AS[], int size) 
+{ 
+ int i,j; 
+ for(i=0;i<size;i++) 
+ { 
+ j=1+rand()%100; 
+ AS[i]=(float)j; 
+ } 
+ 
+ for(i=0;i<size;i++) 
+ { 
+ printf("%d число = %f\n",i+1,AS[i]); 
+ } 
+} 
+void ZAP_ZNAKI(int NAKI[], int size) 
+{ 
+ int i,j; 
+ for(i=0;i<size;i++) 
+ { 
+ if(i==0) NAKI[i]=1+rand()%2; 
+ else NAKI[i]=1+rand()%4; 
+ } 
+ 
+ 
+ for(i=0;i<size;i++) 
+ { 
+ if(NAKI[i]==1&&i!=0) printf("+\t"); 
+ else if(NAKI[i]==1&&i==0) printf(" "); 
+ else if(NAKI[i]==2) printf("-\t"); 
+ else if(NAKI[i]==3) printf("*\t"); 
+ else if(NAKI[i]==4) printf("/\t"); 
+ } 
+ 
+} 
+ 
+int main() 
+{ 
+ int col_per,i; 
+ srand(time(NULL)); 
+ printf("Введите кол-во переменных, для составления выражения\n");scanf("%d",&col_per); 
+ if(col_per==0) printf("Введен ноль, попробуйте еще раз\n"); 
+ else if(col_per>32767) printf("Введено недопустимое значение переменных, попробуйте еще раз\n"); 
+ else 
+ { 
+ 
+ float MAS[col_per]; 
+ int ZNAKI[col_per]; 
+ ZAP_MAS(MAS,col_per); 
+ ZAP_ZNAKI(ZNAKI,col_per); 
+ 
+ printf("\n"); 
+ 
+ float itog=0.0; 
+ 
+ for(i=0;i<col_per;i++) 
+ { 
+ if(ZNAKI[i]==1&&i==0) printf("%.0f",MAS[i]); 
+ else if(ZNAKI[i]==2&&i==0) printf("-%.0f",MAS[i]); 
+ if(ZNAKI[i]==1&&i!=0) printf("+%.0f",MAS[i]); 
+ if(ZNAKI[i]==2&&i!=0) printf("-%.0f",MAS[i]); 
+ if(ZNAKI[i]==3) printf("*%.0f",MAS[i]); 
+ if(ZNAKI[i]==4) printf("/%.0f",MAS[i]); 
+ } 
+ 
+ printf("\n"); 
+ 
+ for(i=1;i<col_per;i++) 
+ { 
+ if (ZNAKI[i]==3&&ZNAKI[i-1]==2) {MAS[i]=MAS[i-1]*MAS[i]; MAS[i-1]=0; ZNAKI[i]=2;} 
+ else if (ZNAKI[i]==3&&ZNAKI[i-1]==1) {MAS[i]=MAS[i-1]*MAS[i]; MAS[i-1]=0; ZNAKI[i]=1;} 
+ else if (ZNAKI[i]==4&&ZNAKI[i-1]==2) {MAS[i]=MAS[i-1]/MAS[i]; MAS[i-1]=0; ZNAKI[i]=2;} 
+ else if (ZNAKI[i]==4&&ZNAKI[i-1]==1) {MAS[i]=MAS[i-1]/MAS[i]; MAS[i-1]=0; ZNAKI[i]=1;} 
+ } 
+ 
+ for(i=0;i<col_per;i++) 
+ { 
+ if (ZNAKI[i]==1) {itog+=MAS[i];} 
+ else if (ZNAKI[i]==2) {itog-=MAS[i];} 
+ } 
+ 
+ printf("\n"); 
+ printf("Ответ равен %f",itog); 
+ } 
+ return 0; 
+}
