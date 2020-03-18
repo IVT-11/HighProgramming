@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define SIZE 2
+#define SIZE 2 // По заданию 5
 
-int main()
+int func (int a[][SIZE], int b[][SIZE], int c[][SIZE]);
+
+int main(void)
 {
-    int A[2][2], B[2][2]; 
-    
+    int A[SIZE][SIZE], B[SIZE][SIZE], result[SIZE][SIZE];
+ 
     for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
@@ -14,17 +16,6 @@ int main()
             printf("Введите элемент первого массива: ");
             scanf("%d", &A[i][j]);
         }
-    }
-    
-    printf("Первый массив: \n");
-    
-    for (int i = 0; i < SIZE; i++)
-    {
-        for (int j = 0; j < SIZE; j++)
-        {
-            printf("%d ", A[i][j]);
-        }
-        printf("\n");
     }
     
     for (int i = 0; i < SIZE; i++)
@@ -35,8 +26,19 @@ int main()
             scanf("%d", &B[i][j]);
         }
     }
+ 
+    printf("\nПервый массив: \n");
     
-    printf("Второй массив: \n");
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
+ 
+    printf("\nВторой массив: \n");
     
     for (int i = 0; i < SIZE; i++)
     {
@@ -46,24 +48,37 @@ int main()
         }
         printf("\n");
     }
-    
-    int result[SIZE][SIZE], sovp = 0;
-    
-    printf("\nРезультат: \n");   
-    
+ 
+    func(A, B, result);
+}
+
+int func (int a[][SIZE], int b[][SIZE], int c[][SIZE])
+{
+    int sovp = 0;    // кол-во совпадений
     for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
         {
-            if (A[i][j] == B[i][j]) {
-                result[i][j] = 1;
-                sovp++; }
-            else 
-                result[i][j] = 0;
-                
-            printf("%d ", result[i][j]);   
+            if (a[i][j] == b[i][j])
+            {
+                c[i][j] = 1;
+                sovp++;
+            }
+            else
+                c[i][j] = 0;
+        }
+    }
+    
+    printf("\nРезультат:\n");
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            printf("%d ", c[i][j]);
         }
         printf("\n");
     }
-        return printf("\nКол-во совпадений: %d", sovp);
+    
+    return printf("\nКол-во совпадений: %d", sovp);
 }
