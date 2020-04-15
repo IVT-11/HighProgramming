@@ -1,0 +1,55 @@
+#include <stdio.h>
+#define ARR_1_SIZE 5
+#define ARR_2_SIZE 3
+
+void f2(int [][ARR_2_SIZE], int);
+void f(int [][ARR_1_SIZE], int);
+
+
+int main()
+{
+   int arr1[ARR_1_SIZE][ARR_1_SIZE] = {};
+   int arr2[ARR_2_SIZE][ARR_2_SIZE] = {{5, 3, 7}, {-1, -3, -5}, {4, 7, 9}};
+
+    for (int i = 0; i < ARR_1_SIZE; i++)
+       for (int j = 0; j < ARR_1_SIZE; j++)
+       {
+          printf("arr[%d][%d] = ", i, j); 
+          scanf("%d", &arr1[i][j]);
+       }
+   printf("\n");
+   f(arr1, ARR_1_SIZE);
+   f2(arr2, ARR_2_SIZE);
+
+   for (int i = 0; i < ARR_1_SIZE; i++)
+      for (int j = 0; j < ARR_1_SIZE; j++)
+         printf("arr[%d][%d] = %d \n", i, j, arr1[i][j]);
+   printf("\n");
+   for (int i = 0; i < ARR_2_SIZE; i++)
+      for (int j = 0; j < ARR_2_SIZE; j++)
+         printf("arr2[%d][%d] = %d \n", i, j, arr2[i][j]);
+}
+
+void f(int arr[][ARR_1_SIZE], int size)
+{
+   int val;
+   int i = 0;
+         for (int j = 0; j < size; j++)
+         {      
+         val = arr[i][j];
+         arr[i][j] = arr[size - 1 - j][size - 1 - i];
+         arr[size - 1 - j][size - 1 - i] = val;
+         }    
+}
+
+void f2(int arr[][ARR_2_SIZE], int size)
+{
+   int val;
+   int i = 0;
+         for (int j = 0; j < size; j++)
+         {      
+         val = arr[i][j];
+         arr[i][j] = arr[size - 1 - j][size - 1 - i];
+         arr[size - 1 - j][size - 1 - i] = val;
+         }    
+}
