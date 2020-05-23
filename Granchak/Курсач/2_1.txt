@@ -1,0 +1,161 @@
+// подключение библиотек
+
+// стандартный заголовочный файл ввода-вывода
+
+#include <stdio.h>
+
+// математическая библиотека
+
+#include <math.h>
+
+// объявление константы
+
+#define DELTA 1e-2
+
+#define e 2.71828
+
+// прототип функции f - функция
+
+double f(double, double, double );
+
+// прототип функции root - поиск корня
+
+double root (double, double, double, double );
+
+// прототип функции derivative - производная
+
+double derivative (double, double, double );
+
+// главная функция main ()
+
+int main ()
+
+{
+
+// объявление переменных типа double
+
+double x=1, epsilon, c, d;
+
+printf ("введите точность: ");
+
+// ввод значения epsilon
+
+scanf ("%lf", &epsilon);
+
+// ввод значения c
+
+printf ("Введите с: ");
+
+scanf("%lf",&c);
+
+// ввод значения d
+
+printf ("Введите d: ");
+
+scanf("%lf",&d);
+
+printf ("\n\n");
+
+// вывод значения, которое возвращает функция root()
+
+root (x, epsilon,c,d);
+
+// успешное выполнение программы
+
+return 0;
+
+}
+
+// объявление функции f - запись уравнения
+
+double f (double x, double c, double d)
+
+{
+
+//возврат значения функции
+
+//return pow(x,4)+c*pow(x,3)-d*x; //5
+
+//return pow(x,3)+c*pow(x,2)+d; //4
+
+//return pow(e, c * x) - d; //2
+
+// дополнительные уравнения
+
+//return c*pow(x,2)-d;
+
+//return cos(c*x)-d;
+
+//return sqrt(c*x)-d;
+
+}
+
+// объявление функции root - считает корень
+
+double root (double x, double epsilon, double c, double d)
+
+{
+
+// объявляем переменную типа double
+
+double x1;
+
+// объявляем переменную k для подсчёта интераций
+
+int k=0;
+
+// цикл с предусловием
+
+do{
+
+// цикл с предусловием
+
+do{
+
+// присваивание переменной х1 значение х
+
+x1 = x;
+
+// присваиваем переменной х выражение последовательное приближение х корня
+
+x = x-(f(x,c,d)/derivative(x,c,d));
+
+// постинкремент
+
+k++;
+
+// вывод на экран значений k, x, f(x, c, d)
+
+printf("%d)x=%lf f(x)= %.10lf\n\n",k,x,f(x,c,d));
+
+}
+
+// пока абсолютное значение функции от аргумента х >= epsilon
+
+while(fabs(f(x,c,d))>=epsilon);
+
+}while(f(x,c,d)*f(x1,c,d)<0);
+
+printf ("\n\n");
+
+printf("\n Ответ х = %lf\n"
+
+"При итерации = %d\n",x,k );
+
+// возврат значения x
+
+return x;
+
+}
+
+// объявление функции derivative - производная
+
+double derivative (double x, double c, double d)
+
+{
+
+// возврат значения derivitive
+
+return (f(x+DELTA,c,d)-f(x,c,d))/DELTA;
+
+}

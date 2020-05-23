@@ -1,0 +1,359 @@
+#include<stdio.h>
+
+#include<stdlib.h>
+
+#include<math.h>
+
+#include<time.h>
+
+#include<conio.h>
+
+#include<windows.h>
+
+int MenuNote = 0, i = 0, j = 0, StartNote = 0, EndMenuNote = 4;
+
+void menu()
+
+{
+
+int i = 0, flag = 1, StartNote = 0, MenuNote = 0;
+
+while (flag == 1)
+
+{
+
+logo();
+
+OutputMenu(MenuNote);
+
+JoyMenu(&flag);
+
+}
+
+if (MenuNote == 0) new_note();
+
+if (MenuNote == 4) exit(1);
+
+if (MenuNote == 3)
+
+{
+
+printf("\n");
+
+printf("Нажмите <backspace>, чтобы вернуться обратно в меню\n");
+
+printf("\n");
+
+show_note();
+
+}
+
+}
+
+void new_note()
+
+{
+
+FILE* date = fopen("datebase.txt", "a+");
+
+char note[100], datenote[100] = "| Note: ";
+
+printf("Note: ");
+
+scanf("%s", note);
+
+MenuNote = 2;
+
+int flag = 1;
+
+int flag_num;
+
+int day = 0;
+
+int month = 0;
+
+int year = 1970;
+
+system("cls");
+
+printf("| Note: %s |\n| Date: [%d:00:00]|", note, day);
+
+while (flag == 1)
+
+{
+
+flag_num = MenuNote;
+
+JoyMenu(&flag);
+
+if (flag_num < MenuNote)
+
+{
+
+day--;
+
+if (day < 0) day = 30;
+
+}
+
+else if (flag_num > MenuNote)
+
+{
+
+day++;
+
+if (day > 30) day = 0;
+
+}
+
+MenuNote = 2;
+
+printf("| Note: %s |\n| Date: [%d:00:00] |", note, day);
+
+}
+
+flag = 1;
+
+system("cls");
+
+printf("| Note: %s |\n| Date: [%d:00:00] |", note, day);
+
+MenuNote = 2;
+
+while (flag == 1)
+
+{
+
+flag_num = MenuNote;
+
+JoyMenu(&flag);
+
+if (flag_num < MenuNote)
+
+{
+
+month--;
+
+if (month < 0) month = 12;
+
+}
+
+else if (flag_num > MenuNote)
+
+{
+
+month++;
+
+if (month > 12) month = 0;
+
+}
+
+MenuNote = 2;
+
+printf("| Note: %s |\n| Date: [%d:00:00] |", note, day, month);
+
+}
+
+flag = 1;
+
+system("cls");
+
+printf("| Note: %s|\n| Date: [%d:%d:00] |", note, day, month);
+
+MenuNote = 2;
+
+while (flag == 1)
+
+{
+
+flag_num = MenuNote;
+
+JoyMenu(&flag);
+
+if (flag_num < MenuNote)
+
+{
+
+year--;
+
+if (year < 1970) year = 1970;
+
+}
+
+else if (flag_num > MenuNote) year++;
+
+MenuNote = 2;
+
+printf("| Note: %s |\n| date: [%d:%d:%d] |", note, day, month, year);
+
+}
+
+char* s_day, * s_month, * s_year;
+
+sprintf(s_day, "%d", day);
+
+int k = 0;
+
+for (; datenote[k] != '\0'; k++)
+
+for (int i = 0; note[i] != '\0'; i++, k++) datenote[k] = note[i];
+
+printf("%s\n", datenote);
+
+if (day > 10) datenote[k] = *s_day;
+
+else if (day < 10) datenote[k] != *s_day;
+
+}
+
+void show_note()
+
+{
+
+FILE* date = fopen("datebase.txt", "r+");
+
+int flag = 1;
+
+char mass[100];
+
+while (fgets(mass, 100, date))
+
+{
+
+if (mass[strlen(mass) - 1] == '\n') mass[strlen(mass) - 1] = '\0';
+
+printf("%s\n", mass);
+
+}
+
+if (getch() == 8) { fclose(date); menu(); }
+
+else if (getch() != 0) show_note();
+
+}
+
+void logo()
+
+{
+
+system("cls");
+
+printf("\t\t\t Ежедневник \n");
+
+printf("\t\tМеню: \n");
+
+}
+
+void OutputMenu(int kursor)
+
+{ if (kursor == 0)
+
+{ printf("\t\t[*] - New Note\n\t\t - Edit Note\n\t\t - Delete Note\n\t\t - Show Note's\n\t\t - Shutdown\n"); }
+
+if (kursor == 1)
+
+{ printf("\t\t - New Note\n\t\t[*] - Edit Note\n\t\t - Delete Note\n\t\t - Show Note's\n\t\t - Shutdown\n"); }
+
+if (kursor == 2)
+
+{ printf("\t\t[*] - New Note\n\t\t - Edit Note\n\t\t[*] - Delete Note\n\t\t - Show Note's\n\t\t - Shutdown\n"); }
+
+if (kursor == 3)
+
+{ printf("\t\t[*] - New Note\n\t\t - Edit Note\n\t\t - Delete Note\n\t\t[*] - Show Note's\n\t\t - Shutdown\n"); }
+
+if (kursor == 4)
+
+{ printf("\t\t[*] - New Note\n\t\t - Edit Note\n\t\t - Delete Note\n\t\t - Show Note's\n\t\t[*] - Shutdown\n"); }
+
+}
+
+int JoyMenu(int* flag)
+
+{
+
+char select = getch();
+
+switch (select)
+
+{
+
+case 13:
+
+{
+
+system("cls");
+
+*flag = 0;
+
+return MenuNote;
+
+}
+
+case 56:
+
+{
+
+if (MenuNote == StartNote) {
+
+MenuNote = EndMenuNote;
+
+//OutputMenu{i);
+
+system("cls");
+
+return MenuNote;
+
+}
+
+if (MenuNote > StartNote) {
+
+MenuNote--;
+
+//OutputMenu(i);
+
+system("cls");
+
+return MenuNote;
+
+}
+
+}
+
+case 50: {
+
+if (MenuNote == EndMenuNote)
+
+{
+
+MenuNote = StartNote;
+
+//OutputMenu(i);
+
+system("cls");
+
+return MenuNote;
+
+}
+
+else {
+
+MenuNote++;
+
+//OutputMenu(i);
+
+system("cls");
+
+return MenuNote;
+
+}
+
+}
+
+default: system("cls");
+
+}
+
+}
+
+int main() { menu(); return 0; }

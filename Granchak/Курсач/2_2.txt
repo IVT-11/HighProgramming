@@ -1,0 +1,151 @@
+#include <stdio.h>
+
+//математическая библиотека
+
+#include <math.h>
+
+//точность вычислений
+
+#define epsilon 0.00001
+
+//значение е
+
+#define e 2.71828
+
+//прототип функции f
+
+double f(double, double, double);
+
+//прототип функции нахождения корня
+
+double FindRoot(double, double, double, double);
+
+//объявление функции f
+
+double f(double x, double c, double d)
+
+{
+
+return pow(e, c * x) - d; ///1///
+
+///2///return pow(x, 3) + c * pow(x, 2) + d;
+
+///3///return pow(x, 4) + c * pow(x, 3) - d * x;
+
+///4///return c * pow(x, 2) - d;
+
+///5///return cos(c * x) - d;
+
+///6///return sqrt(c * x) - d;
+
+}
+
+// объявление функции нахождения корня
+
+double FindRoot(double a, double b, double c, double d){
+
+// объявляем переменные m, i, lenght
+
+double m;
+
+int i = 0;
+
+double lenght = b - a;
+
+//если значение функции меньше точности, возвращаем а
+
+if (fabs(f(a, c, d)) < epsilon)
+
+return a;
+
+//если значение функции меньше точности, возвращаем b
+
+else if (fabs(f(b, c, d)) < epsilon)
+
+return b;
+
+//пока длина больше или равна точности, выполняем:
+
+while (lenght >= epsilon)
+
+{
+
+//находим середину отрезка
+
+m = (a + b) / 2;
+
+//если значение функции меньше точности, возвращаем m
+
+if (fabs(f(m, c, d)) < epsilon)
+
+return m;
+
+//если произведение функции меньше 0, то присваиваем b значение m
+
+if (f(a, c, d) * f(m, c, d) < 0)
+
+b = m;
+
+//иначе присваиваем a значение m
+
+else
+
+a = m;
+
+//уменьшаем длину
+
+lenght /= 2;
+
+i++;
+
+}
+
+//вывод на печать количества итераций
+
+printf("Число итераций: %d\n", i);
+
+//возвращаем m
+
+return m;
+
+}
+
+//главная функция
+
+int main()
+
+{ //объявляем переменные и вводим значения a,b,c,d
+
+double a, b, c, d, x;
+
+printf("Введите а и b: ");
+
+//ввод интервала
+
+scanf("%lf%lf", &a, &b);
+
+printf("Введите c и d: ");
+
+//ввод параметров
+
+scanf("%lf%lf", &c, &d);
+
+//если точки нет на интервале, сообщаем об ошибке
+
+if (f(a, c, d) * f(b, c, d) > 0)
+
+printf("Функция не имеет коней на данном отрезке\n");
+
+//находим корень пр ипомощи функции FinfRoot
+
+x = FindRoot(a, b, c, d);
+
+//выводим полученное значение х на экран
+
+printf("x = %lf, f(x) = %lf\n", x,f(x,c,d));
+
+//завершение работы
+
+return 0;
+
+}
