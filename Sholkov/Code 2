@@ -1,0 +1,75 @@
+// подключение библиотек
+// стандартный заголовочный файл ввода-вывода
+#include <stdio.h>
+// математическая библиотека
+#include <math.h>
+// объявление константы
+#define Dt 1e-2
+#define e 2.71828
+// прототип функции f_x - функция
+double f_x(double, double, double);
+// прототип функции FindRoot - поиск корня
+double FindRoot(double, double, double, double);
+// прототип функции Der - производная
+double Der(double, double, double);
+// главная функция main ()
+int main() {
+setlocale(0, "");
+// объявление переменных типа double
+double x = 1, eps, c, d;
+printf("введите точность: ");
+// ввод значения eps
+scanf("%lf", &eps);
+// ввод значения c
+printf("Введите с: ");
+scanf("%lf", &c);
+// ввод значения d
+printf("Введите d: ");
+scanf("%lf", &d);
+printf("\n\n");
+// вывод значения, которое возвращает функция FindRoot()
+FindRoot(x, eps, c, d);
+// успешное выполнение программы
+return 0;
+}
+// объявление функции f_x - запись уравнения
+double f_x(double x, double c, double d) 
+{
+//возврат значения функции
+return pow(e, c * x) - d;
+//return (log(c*x)/log(2))-d;
+//return pow(x,4)+c*pow(x,3)-d*x;
+//return cos(c*x)-d;
+//return sin(c*x)-d;
+//return sqrt(c*x)-d;
+}
+// объявление функции FindRoot - считает корень
+double FindRoot(double x, double eps, double c, double d)
+{
+// объявляем переменную типа double
+double x1;
+// объявляем переменную k для подсчёта интераций
+int k = 0;
+// цикл с предусловием
+do {
+// цикл с предусловием
+do {
+// присваивание переменной х1 значение х
+x1 = x;
+// присваиваем переменной х выражение последовательное приближение х корня
+x = x - (f_x(x, c, d) / Der(x, c, d));
+// постинкремент
+k++;
+// вывод на экран значений k, x, f(x, c, d)
+printf("%d)x=%lf f(x)= %.10lf\n\n", k, x, f_x(x, c, d));
+}
+// пока абсолютное значение функции от аргумента х >= eps
+while (fabs(f_x(x, c, d)) >= eps);
+}
+while (f_x(x, c, d) * f_x(x1, c, d) < 0);
+printf("\n\n");
+printf("\n х = %lf\n"
+"При итерации = %d\n", x, k);
+// возврат значения x
+return x;
+}
